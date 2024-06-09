@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { Box, Container, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import Footer from "../footer/Footer";
 
 const Home = () => {
   return (
@@ -91,6 +92,7 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
       </Box>
+      <Footer />
     </Box>
   );
 };
