@@ -14,16 +14,45 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-
+import HomeIcon from "@mui/icons-material/Home";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
+import CallIcon from "@mui/icons-material/Call";
+import { useLocation, useNavigate } from "react-router-dom";
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = [
+  {
+    id: "1",
+    name: "Home",
+    icon: <HomeIcon />,
+    path: "/",
+  },
+  {
+    id: "2",
+    name: "Services",
+    icon: <BusinessCenterIcon />,
+    path: "/services",
+  },
+  {
+    id: "3",
+    name: "Contact us",
+    icon: <CallIcon />,
+    path: "/contact-us",
+  },
+];
 
 function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentPath = location.pathname;
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+
+  const handleChange = (path) => {
+    navigate(path);
   };
 
   const drawer = (
@@ -34,9 +63,9 @@ function Navbar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.id} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -50,7 +79,7 @@ function Navbar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ background: "#28282B" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -61,19 +90,47 @@ function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+            }}
           >
-            Reality Unit
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
+            <Typography sx={{ fontSize: "16px" }}>Reality Unit</Typography>
+            <Box sx={{ display: { xs: "none", sm: "flex" }, gap: "16px" }}>
+              {navItems.map((item) => (
+                <Button
+                  key={item.id}
+                  sx={{
+                    color: currentPath === item.path ? "#FFEA00" : "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                  onClick={() => handleChange(item.path)}
+                >
+                  {item.icon}
+                  {item.name}
+                </Button>
+              ))}
+            </Box>
+            <Typography
+              sx={{
+                fontSize: "16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <Box
+                sx={{ color: "#FFEA00", display: "flex", alignItems: "center" }}
+              >
+                <CallIcon color="#FFEA00" />
+              </Box>
+              1234567890
+            </Typography>
           </Box>
         </Toolbar>
       </AppBar>

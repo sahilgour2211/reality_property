@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-const Home = () => {
+const ContactUS = () => {
   return (
     <Box sx={{ marginTop: "60px" }}>
       <Navbar />
-      Home
+      ContactUS
     </Box>
   );
 };
 
-export default Home;
+export default ContactUS;
