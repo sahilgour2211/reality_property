@@ -12,7 +12,7 @@ const usefulLinks2 = ["Awards and Recognition", "Contact US", "Privacy Policy"];
 const usefulLinks3 = ["What we do", "Blog", "Properties", "FAQ"];
 const Footer = () => {
   return (
-    <Box p={2} bgcolor={SECONDARY_COLOR}>
+    <Box p={2} bgcolor={SECONDARY_COLOR} paddingTop={"48px"}>
       <Grid container spacing={4}>
         <Grid item sm={3}>
           <Box>
@@ -21,6 +21,7 @@ const Footer = () => {
               alt=""
               width={"200px"}
               height={"80px"}
+              style={{ objectFit: "cover" }}
             />
           </Box>
         </Grid>
