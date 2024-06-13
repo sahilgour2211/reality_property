@@ -60,7 +60,13 @@ const ContactUS = () => {
           <CircularProgress />
         </Box>
       )}
-      <Box p={4} bgcolor={"#ffffc2"} mt={4} width={{ xs: "100%", md: "30%" }}>
+      <Box
+        p={4}
+        bgcolor={"#fff"}
+        mt={4}
+        width={{ xs: "100%", md: "30%" }}
+        sx={{ borderRadius: "12px" }}
+      >
         <Typography
           // color={"#fff"}
           fontWeight={"bold"}
@@ -110,7 +116,7 @@ const ContactUS = () => {
             bgcolor: "#000",
             color: "#fff",
             background:
-              "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(85,83,65,1) 80%, rgba(112,110,75,0.9810049019607843) 100%)",
+              "linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgb(25 132 165) 80%, rgb(54 71 124 / 98%) 100%)",
             "&:hover": {
               bgcolor: "#000",
               color: "#fff",

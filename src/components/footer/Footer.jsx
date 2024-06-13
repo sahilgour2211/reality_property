@@ -3,6 +3,10 @@ import React from "react";
 import CallIcon from "@mui/icons-material/Call";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import ComputerOutlinedIcon from "@mui/icons-material/ComputerOutlined";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import XIcon from "@mui/icons-material/X";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 const PRIMARY_COLOR = "#FFEA00";
 const SECONDARY_COLOR = "#28282B";
@@ -17,15 +21,15 @@ const Footer = () => {
         <Grid item sm={3}>
           <Box>
             <img
-              src="/images/realtyUnitLogo.jpg"
+              src="/images/mainLogo.png"
               alt=""
-              width={"200px"}
-              height={"80px"}
+              width={"250px"}
+              height={"100px"}
               style={{ objectFit: "cover" }}
             />
           </Box>
         </Grid>
-        <Grid item sm={3}>
+        <Grid item sm={5}>
           <Box>
             <Typography color={"#fff"} variant="h6" textAlign={"start"}>
               Feel Free To Contact Us
@@ -42,7 +46,7 @@ const Footer = () => {
                 }}
               >
                 <CallIcon />
-                <Typography color={"#fff"}>12345678</Typography>
+                <Typography color={"#fff"}>+91 75 3506 5051</Typography>
               </Box>
               <Box
                 py={1}
@@ -54,7 +58,7 @@ const Footer = () => {
                 }}
               >
                 <EmailOutlinedIcon />
-                <Typography color={"#fff"}>RealtyUnit81@gmail.com</Typography>
+                <Typography color={"#fff"}>info@realtyunit.in</Typography>
               </Box>
               <Box
                 py={1}
@@ -66,18 +70,18 @@ const Footer = () => {
                 }}
               >
                 <ComputerOutlinedIcon />
-                <Typography color={"#fff"}>www.realtyunit.com</Typography>
+                <Typography color={"#fff"}>www.realtyunit.in</Typography>
               </Box>
             </Box>
           </Box>
         </Grid>
-        <Grid item sm={6}>
+        <Grid item sm={4}>
           <Box>
             <Typography color={"#fff"} variant="h6" textAlign={"start"}>
               Useful Links
             </Typography>
             <Divider sx={{ bgcolor: "#fff" }} />
-            <Box
+            {/* <Box
               display={"flex"}
               justifyContent={"space-between"}
               alignItems={"center"}
@@ -104,6 +108,36 @@ const Footer = () => {
                   </Typography>
                 ))}
               </Box>
+            </Box> */}
+            <Box
+              sx={{
+                display: "flex",
+                gap: "8px",
+                alignItems: "center",
+                marginTop: "16px",
+              }}
+            >
+              <a
+                href="https://www.facebook.com/profile.php?id=61561006010574&sk=about_contact_and_basic_info"
+                style={{ color: "#FFEA00" }}
+              >
+                <FacebookIcon />
+              </a>
+              <a
+                href="https://www.instagram.com/realtyunit/"
+                style={{ color: "#FFEA00" }}
+              >
+                <InstagramIcon />
+              </a>
+              <a href="https://x.com/RealtyUnit5" style={{ color: "#FFEA00" }}>
+                <XIcon />
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCHSEN1QJCwz1P23fHv37VSQ"
+                style={{ color: "#FFEA00" }}
+              >
+                <YouTubeIcon />
+              </a>
             </Box>
           </Box>
         </Grid>

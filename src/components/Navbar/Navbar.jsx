@@ -98,7 +98,13 @@ function Navbar(props) {
               width: "100%",
             }}
           >
-            <Typography sx={{ fontSize: "16px" }}>Reality Unit</Typography>
+            <img
+              src="/images/mainLogo.png"
+              alt=""
+              width={"250px"}
+              height={"100px"}
+              style={{ objectFit: "cover" }}
+            />
             <Box sx={{ display: { xs: "none", sm: "flex" }, gap: "16px" }}>
               {navItems.map((item) => (
                 <Button
@@ -129,7 +135,7 @@ function Navbar(props) {
               >
                 <CallIcon color="#FFEA00" />
               </Box>
-              1234567890
+              +91 75 3506 5051
             </Typography>
           </Box>
         </Toolbar>
