@@ -18,6 +18,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import CallIcon from "@mui/icons-material/Call";
 import { useLocation, useNavigate } from "react-router-dom";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 const drawerWidth = 240;
 const navItems = [
   {
@@ -39,13 +41,20 @@ const navItems = [
     path: "/contact-us",
   },
 ];
-
+const dropdownItems = [
+  "Residential Property",
+  "Commercial Property",
+  "Retail",
+  "Land",
+  "NRI & HNI",
+];
 function Navbar(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const currentPath = location.pathname;
+  const [dropdown, setDropdown] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -64,7 +73,10 @@ function Navbar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.id} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              onClick={() => handleChange(item.path)}
+            >
               <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
@@ -107,19 +119,67 @@ function Navbar(props) {
             />
             <Box sx={{ display: { xs: "none", sm: "flex" }, gap: "16px" }}>
               {navItems.map((item) => (
-                <Button
-                  key={item.id}
-                  sx={{
-                    color: currentPath === item.path ? "#FFEA00" : "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                  }}
-                  onClick={() => handleChange(item.path)}
-                >
-                  {item.icon}
-                  {item.name}
-                </Button>
+                <>
+                  <Button
+                    key={item.id}
+                    onMouseEnter={() =>
+                      item.name === "Services" && setDropdown(true)
+                    }
+                    onMouseLeave={() =>
+                      item.name === "Services" && setDropdown(false)
+                    }
+                    sx={{
+                      color: currentPath === item.path ? "#FFEA00" : "#fff",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "4px",
+                    }}
+                    onClick={() => handleChange(item.path)}
+                  >
+                    {item.icon}
+                    {item.name === "Services" ? (
+                      <Box display={"flex"} position={"relative"}>
+                        <Typography>{item.name}</Typography>
+                        {!dropdown ? (
+                          <ArrowDropDownIcon
+                            onClick={() => setDropdown(true)}
+                          />
+                        ) : (
+                          <ArrowDropUp onClick={() => setDropdown(false)} />
+                        )}
+
+                        {dropdown && (
+                          <Box
+                            bgcolor={"#28282B"}
+                            display={"flex"}
+                            flexDirection={"column"}
+                            position={"absolute"}
+                            zIndex={100}
+                            top={"120%"}
+                            right={"-90%"}
+                            width={"300px"}
+                          >
+                            {dropdownItems.map((dItem) => (
+                              <a href={`#${dItem}`}>
+                                <Box
+                                  py={1}
+                                  pl={1}
+                                  textAlign={"left"}
+                                  color={"#FFEA00"}
+                                  style={{ textDecoration: "none" }}
+                                >
+                                  {dItem}
+                                </Box>
+                              </a>
+                            ))}
+                          </Box>
+                        )}
+                      </Box>
+                    ) : (
+                      item.name
+                    )}
+                  </Button>
+                </>
               ))}
             </Box>
             <Typography

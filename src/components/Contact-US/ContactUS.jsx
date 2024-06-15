@@ -32,9 +32,9 @@ const ContactUS = () => {
     try {
       setLoading(true);
       const res = await axios.post(`${BASE_URL}/user/contact-form`, form);
+      setForm({ name: "", email: "", phone: "", message: "" });
       if (res.success) {
-        setForm({ name: "", email: "", phone: "", message: "" });
-        alert("Form Submitted");
+        // alert("Form Submitted");
       }
     } catch (error) {
       console.log(error);

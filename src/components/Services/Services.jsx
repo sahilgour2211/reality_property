@@ -9,7 +9,12 @@ const Services = () => {
       <Navbar />
       <Container>
         <Box marginTop={"24px"}>
-          <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
+          <Box
+            display={"flex"}
+            flexDirection={"column"}
+            gap={"12px"}
+            id="Residential Property"
+          >
             <Typography
               textAlign={"center"}
               fontWeight={"600"}
@@ -38,7 +43,7 @@ const Services = () => {
             ></video>
           </Box>
         </Box>
-        <Box marginTop={"64px"}>
+        <Box marginTop={"64px"} id="Commercial Property">
           <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
@@ -70,7 +75,7 @@ const Services = () => {
           </Box>
         </Box>
 
-        <Box marginTop={"64px"}>
+        <Box marginTop={"64px"} id="Retail">
           <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
@@ -100,7 +105,7 @@ const Services = () => {
           </Box>
         </Box>
 
-        <Box margin={"64px 0px"}>
+        <Box margin={"64px 0px"} id="Land">
           <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
@@ -131,7 +136,7 @@ const Services = () => {
           </Box>
         </Box>
 
-        <Box margin={"64px 0px"}>
+        <Box margin={"64px 0px"} id="NRI & HNI">
           <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
