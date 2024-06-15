@@ -160,13 +160,15 @@ function Navbar(props) {
                             width={"300px"}
                           >
                             {dropdownItems.map((dItem) => (
-                              <a href={`#${dItem}`}>
+                              <a
+                                href={`#${dItem}`}
+                                style={{ textDecoration: "none " }}
+                              >
                                 <Box
                                   py={1}
                                   pl={1}
                                   textAlign={"left"}
                                   color={"#FFEA00"}
-                                  style={{ textDecoration: "none" }}
                                 >
                                   {dItem}
                                 </Box>
