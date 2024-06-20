@@ -175,6 +175,7 @@ function Navbar(props) {
                                 style={{ textDecoration: "none" }}
                               >
                                 <Box
+                                  onClick={() => handleChange(item.path)}
                                   py={1}
                                   pl={1}
                                   textAlign={"left"}
