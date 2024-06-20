@@ -20,6 +20,7 @@ import CallIcon from "@mui/icons-material/Call";
 import { useLocation, useNavigate } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 const drawerWidth = 240;
 const navItems = [
   {
@@ -42,11 +43,11 @@ const navItems = [
   },
 ];
 const dropdownItems = [
-  "Residential Property",
-  "Commercial Property",
+  "Residential-Property",
+  "Commercial-Property",
   "Retail",
   "Land",
-  "NRI & HNI",
+  "NRI-&-HNI",
 ];
 function Navbar(props) {
   const { window } = props;
@@ -160,9 +161,18 @@ function Navbar(props) {
                             width={"300px"}
                           >
                             {dropdownItems.map((dItem) => (
-                              <a
-                                href={`#${dItem}`}
-                                style={{ textDecoration: "none " }}
+                              // <a
+                              //   href={`#${dItem}`}
+                              //   style={{ textDecoration: "none " }}
+                              // >
+                              <ScrollLink
+                                key={dItem}
+                                to={dItem.replace(/\s/g, "")} // Remove spaces from the id
+                                spy={true}
+                                smooth={true}
+                                offset={-100} // Adjust according to your navbar height
+                                duration={500}
+                                style={{ textDecoration: "none" }}
                               >
                                 <Box
                                   py={1}
@@ -170,9 +180,10 @@ function Navbar(props) {
                                   textAlign={"left"}
                                   color={"#FFEA00"}
                                 >
-                                  {dItem}
+                                  {dItem.split("-").join(" ")}
                                 </Box>
-                              </a>
+                              </ScrollLink>
+                              // </a>
                             ))}
                           </Box>
                         )}

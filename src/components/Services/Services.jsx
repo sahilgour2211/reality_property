@@ -8,13 +8,8 @@ const Services = () => {
     <Box sx={{ marginTop: "100px" }}>
       <Navbar />
       <Container>
-        <Box marginTop={"24px"}>
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            gap={"12px"}
-            id="Residential Property"
-          >
+        <Box marginTop={"24px"} id="Residential-Property">
+          <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
               fontWeight={"600"}
@@ -43,7 +38,7 @@ const Services = () => {
             ></video>
           </Box>
         </Box>
-        <Box marginTop={"64px"} id="Commercial Property">
+        <Box marginTop={"64px"} id="Commercial-Property">
           <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
@@ -136,7 +131,7 @@ const Services = () => {
           </Box>
         </Box>
 
-        <Box margin={"64px 0px"} id="NRI & HNI">
+        <Box margin={"64px 0px"} id="NRI-&-HNI">
           <Box display={"flex"} flexDirection={"column"} gap={"12px"}>
             <Typography
               textAlign={"center"}
