@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import Footer from "../footer/Footer";
+import axios from "axios";
+import { BASE_URL } from "../../constants";
 
 const Home = () => {
+  const fetchUsers = async () => {
+    try {
+      const res = await axios.get(`https://realtyprop.onrender.com/`);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchUsers();
+  }, []);
   return (
     <Box sx={{ marginTop: "100px" }}>
       <Navbar />
